@@ -1,173 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau Dashboard</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #000000;
-            line-height: 1.2;
-        }
-
-        .intro {
-            font-size: 1.1rem;
-            color: #333333;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        /* Meta Information */
-        .meta-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .meta-label {
-            font-size: 0.85rem;
-            color: #888888;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .meta-value {
-            font-size: 1rem;
-            color: #000000;
-        }
-
-        /* Section Styling */
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #000000;
-        }
-
-        .section-content {
-            font-size: 1rem;
-            color: #333333;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-content p {
-            margin-bottom: 1rem;
-        }
-
-        /* Tableau Dashboard Container */
-        .dashboard-container {
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .dashboard-embed {
-            width: 100%;
-            height: 800px;
-            border: none;
-            background-color: #f5f5f5;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .meta-info {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Summary — Solar Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <main class="main-content">
-        <h1>Big 10 Football Chant Lyric Compositions</h1>
-        
-        <p class="intro">
-            Let's explore the lyric composition for each school chant in the Big 10 Football Conference.
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">Grassroots Solar</div>
+        <div class="subtitle">Intelligence Dashboard</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group-label">Analysis</div>
+        <a href="index.html" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Executive Summary
+        </a>
+        <a href="demographic-analysis.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Demographic Analysis
+        </a>
+        <div class="nav-group-label">Solar</div>
+        <a href="solar-batteries.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
+          Solar Batteries
+        </a>
+        <a href="financials.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Financials
+        </a>
+        <a href="solar-grants.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Solar Grants
+        </a>
+        <a href="plug-in-solar.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          Plug-in Solar
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        Solar Dashboard v1.0<br>
+        July 2026
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <h1>Executive Summary</h1>      </header>
+
+      <section class="hero">
+        <div class="hero-label">Executive Briefing</div>
+        <h2 class="hero-title">Bringing a Grassroots Funded Solar Program to South Bend is Feasible</h2>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="dashboard-eyebrow">At a Glance</div>
+        <h2 class="dashboard-title">Program Dashboard</h2>
+        <p class="dashboard-subtitle">
+          A rollup of the figures decision-makers ask about first: projected return, target market strength,
+          available funding, and equipment options. Each card links through to the full analysis.
         </p>
 
-        <div class="meta-info">
-            <div class="meta-item">
-                <span class="meta-label">Authors</span>
-                <span class="meta-value">Ethan Lin, Joshua Wildermuth</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Published</span>
-                <span class="meta-value">Jan. 20, 2026</span>
-            </div>
+        <div class="dashboard-metrics-grid">
+          <div class="dashboard-metric">
+            <div class="dashboard-metric-label">Net Savings, 20 Yr</div>
+            <div class="dashboard-metric-value">$X</div>
+            <div class="dashboard-metric-note">Placeholder, 5 kW system</div>
+          </div>
+          <div class="dashboard-metric">
+            <div class="dashboard-metric-label">Payback Period</div>
+            <div class="dashboard-metric-value">X yrs</div>
+            <div class="dashboard-metric-note">Placeholder, 5 kW system</div>
+          </div>
+          <div class="dashboard-metric">
+            <div class="dashboard-metric-label">Grants Tracked</div>
+            <div class="dashboard-metric-value">90</div>
+            <div class="dashboard-metric-note">Federal, state &amp; private funders</div>
+          </div>
+          <div class="dashboard-metric">
+            <div class="dashboard-metric-label">Funding Available</div>
+            <div class="dashboard-metric-value">~$10.3M</div>
+            <div class="dashboard-metric-note">Across active grant opportunities</div>
+          </div>
+          <div class="dashboard-metric">
+            <div class="dashboard-metric-label">Target Markets</div>
+            <div class="dashboard-metric-value">2</div>
+            <div class="dashboard-metric-note">South Bend &amp; Bloomington, IN</div>
+          </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Overview and Dataset</h2>
-            <div class="section-content">
-                <p>
-                    Our dashboard aims to analyze the frequency of different phrases across chants in the Big 10 Football Conference while showing each chant's distribution across BPM's and chant durations.
-                </p>
-                <p>
-                    <strong>Dataset Information:</strong> Our dataset was provided as a csv file containing a variety of information including school name, BPM, chant duration, and whether or not each chant contained certain phrases "Fight", "Rah", and other "nonsense" phrases.
-                </p>
-                <p>
-                    We utilized external online data by researching the song lyrics and compiling how many times a phrase was in a chant. 
-                </p>
+        <div class="dashboard-columns">
+          <div class="dashboard-panel">
+            <h3 class="dashboard-panel-title">Target Market Comparison</h3>
+            <table class="dashboard-mini-table">
+              <thead>
+                <tr>
+                  <th>KPI</th>
+                  <th class="dm-market">South Bend</th>
+                  <th class="dm-market">Bloomington</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="dm-label">Population</td>
+                  <td class="dm-value">103,085</td>
+                  <td class="dm-value">80,049</td>
+                </tr>
+                <tr>
+                  <td class="dm-label">Homeownership Rate</td>
+                  <td class="dm-value">60.20%</td>
+                  <td class="dm-value">34.70%</td>
+                </tr>
+                <tr>
+                  <td class="dm-label">Area Median Income</td>
+                  <td class="dm-value">$55,768</td>
+                  <td class="dm-value">$50,465</td>
+                </tr>
+                <tr>
+                  <td class="dm-label">Median House Value</td>
+                  <td class="dm-value">$140,400</td>
+                  <td class="dm-value">$321,400</td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="demographic-analysis.html" class="dashboard-link">View full demographic analysis &rarr;</a>
+          </div>
+
+          <div class="dashboard-panel">
+            <h3 class="dashboard-panel-title">Upcoming Grant Deadlines</h3>
+            <ul class="dashboard-grant-list">
+              <li class="dashboard-grant-item">
+                <div>
+                  <div class="dashboard-grant-name">Bell's Brewery Small Grassroots Grants</div>
+                  <div class="dashboard-grant-funder">Bell's Brewery, Inc.</div>
+                </div>
+                <div class="dashboard-grant-deadline">Jul 31</div>
+              </li>
+              <li class="dashboard-grant-item">
+                <div>
+                  <div class="dashboard-grant-name">Express Health Information Outreach Awards</div>
+                  <div class="dashboard-grant-funder">National Library of Medicine</div>
+                </div>
+                <div class="dashboard-grant-deadline">Aug 1</div>
+              </li>
+              <li class="dashboard-grant-item">
+                <div>
+                  <div class="dashboard-grant-name">Norfolk Southern Corporate Giving: Thriving Communities</div>
+                  <div class="dashboard-grant-funder">Norfolk Southern Foundation</div>
+                </div>
+                <div class="dashboard-grant-deadline">Aug 3</div>
+              </li>
+              <li class="dashboard-grant-item">
+                <div>
+                  <div class="dashboard-grant-name">Promise Neighborhoods</div>
+                  <div class="dashboard-grant-funder">US ED: Office of Innovation and Improvement</div>
+                </div>
+                <div class="dashboard-grant-deadline">Aug 6</div>
+              </li>
+            </ul>
+            <a href="solar-grants.html" class="dashboard-link">View all 90 grants &rarr;</a>
+          </div>
+        </div>
+
+        <div class="dashboard-columns">
+          <div class="dashboard-panel">
+            <h3 class="dashboard-panel-title">Battery Storage Options</h3>
+            <div class="dashboard-product-grid">
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">Enphase IQ Battery 5P</div>
+                <div class="dashboard-product-spec">5 kWh</div>
+                <div class="dashboard-product-price">$7,000 &ndash; $9,500</div>
+              </div>
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">BYD Battery-Box Premium HVM</div>
+                <div class="dashboard-product-spec">5.12 kWh</div>
+                <div class="dashboard-product-price">$6,000 &ndash; $8,000</div>
+              </div>
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">Tesla Powerwall 3</div>
+                <div class="dashboard-product-spec">13.5 kWh</div>
+                <div class="dashboard-product-price">$12,000 &ndash; $16,000</div>
+              </div>
             </div>
-        </div>
-<!--
-        <div class="dashboard-container">
-            <h2 class="section-title">Dashboard</h2>
-            Replace the iframe src with your actual Tableau dashboard embed URL
-            <iframe 
-                class="dashboard-embed"
-                src="https://public.tableau.com/views/DataVizFight/Sheet1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-                title="Tableau Dashboard">
-            </iframe>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-            </p>
-        </div>
+            <a href="solar-batteries.html" class="dashboard-link">Compare all batteries &rarr;</a>
+          </div>
 
-    -->
-
-<div class='tableauPlaceholder' id='viz1768935490854' style='position: relative'><noscript><a href='#'><img alt='Does Your School Have Fight? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVizFight&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVizFight&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVizFight&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1768935490854');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        
+          <div class="dashboard-panel">
+            <h3 class="dashboard-panel-title">Plug-In Solar Options</h3>
+            <div class="dashboard-product-grid">
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">EcoFlow RIVER 3 Plus</div>
+                <div class="dashboard-product-spec">600 W</div>
+                <div class="dashboard-product-price">$350</div>
+              </div>
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">CraftStrom 800W Kit</div>
+                <div class="dashboard-product-spec">800 W</div>
+                <div class="dashboard-product-price">$2,031</div>
+              </div>
+              <div class="dashboard-product-card">
+                <div class="dashboard-product-name">APsystems EZ1</div>
+                <div class="dashboard-product-spec">Microinverter</div>
+                <div class="dashboard-product-price">$325</div>
+              </div>
+            </div>
+            <a href="plug-in-solar.html" class="dashboard-link">Compare all plug-in options &rarr;</a>
+          </div>
+        </div>
+      </section>
     </main>
+  </div>
 </body>
 </html>

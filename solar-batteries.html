@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Batteries — Solar Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">Grassroots Solar</div>
+        <div class="subtitle">Intelligence Dashboard</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group-label">Analysis</div>
+        <a href="index.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Executive Summary
+        </a>
+        <a href="demographic-analysis.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Demographic Analysis
+        </a>
+        <div class="nav-group-label">Solar</div>
+        <a href="solar-batteries.html" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
+          Solar Batteries
+        </a>
+        <a href="financials.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Financials
+        </a>
+        <a href="solar-grants.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Solar Grants
+        </a>
+        <a href="plug-in-solar.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          Plug-in Solar
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        Solar Dashboard v1.0<br>
+        July 2026
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <h1>Solar Batteries</h1>      </header>
+
+      <section class="hero">
+        <div class="hero-label">Battery Storage</div>
+        <h2 class="hero-title">Capacity, pricing, and feature comparisons across leading residential battery options will appear here.</h2>
+      </section>
+
+      <section class="battery-section">
+        <div class="battery-eyebrow">Battery Storage</div>
+        <h2 class="battery-title">Solar Battery Comparison</h2>
+        <p class="battery-description">
+          Residential battery options compared by storage capacity, installed price range, and key differentiators.
+          Select a battery tab for full details and notable features.
+        </p>
+
+        <div class="battery-tabs">
+          <button class="battery-tab active" data-battery="all">All Batteries</button>
+          <button class="battery-tab" data-battery="enphase">
+            <span class="battery-tab-dot blue"></span>
+            Enphase IQ Battery 5P
+          </button>
+          <button class="battery-tab" data-battery="byd">
+            <span class="battery-tab-dot green"></span>
+            BYD Battery-Box Premium HVM
+          </button>
+          <button class="battery-tab" data-battery="tesla">
+            <span class="battery-tab-dot orange"></span>
+            Tesla Powerwall 3
+          </button>
+        </div>
+
+        <!-- Overview: all batteries, ordered by size -->
+        <div class="battery-panel active" id="panel-all">
+          <div class="battery-overview-grid">
+            <div class="battery-overview-col">
+              <div class="battery-col-label">Smallest Capacity</div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Name</div>
+                <div class="battery-metric-value name">Enphase IQ Battery 5P</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Storage</div>
+                <div class="battery-metric-value">5 kWh</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Price</div>
+                <div class="battery-metric-value">$7,000 – $9,500</div>
+              </div>
+            </div>
+
+            <div class="battery-overview-col">
+              <div class="battery-col-label">Mid Capacity</div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Name</div>
+                <div class="battery-metric-value name">BYD Battery-Box Premium HVM</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Storage</div>
+                <div class="battery-metric-value">5.12 kWh</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Price</div>
+                <div class="battery-metric-value">$6,000 – $8,000</div>
+              </div>
+            </div>
+
+            <div class="battery-overview-col">
+              <div class="battery-col-label">Largest Capacity</div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Name</div>
+                <div class="battery-metric-value name">Tesla Powerwall 3</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Storage</div>
+                <div class="battery-metric-value">13.5 kWh</div>
+              </div>
+              <div class="battery-metric">
+                <div class="battery-metric-label">Price</div>
+                <div class="battery-metric-value">$12,000 – $16,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enphase detail -->
+        <div class="battery-panel" id="panel-enphase">
+          <div class="battery-detail">
+            <div class="battery-detail-layout">
+              <div class="battery-detail-image">
+                <img src="images/enphase-iq-battery.png" alt="Enphase IQ Battery 5P">
+              </div>
+              <div class="battery-detail-content">
+                <div class="battery-detail-header">
+                  <div>
+                    <div class="battery-detail-name">Enphase IQ Battery 5P</div>
+                  </div>
+                  <div class="battery-detail-specs">
+                    <div class="battery-detail-spec">
+                      <div class="label">Storage</div>
+                      <div class="value">5 kWh</div>
+                    </div>
+                    <div class="battery-detail-spec">
+                      <div class="label">Price</div>
+                      <div class="value">$7,000 – $9,500</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="battery-features-label">Notable Features</div>
+                <p class="battery-features-text">
+                  Best for matched, modular fit. AC coupled so easy retrofit if you already have solar.
+                  Carries a 15-year, 6,000 cycle warranty. Good if you want to start small and scale up gradually.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BYD detail -->
+        <div class="battery-panel" id="panel-byd">
+          <div class="battery-detail">
+            <div class="battery-detail-layout">
+              <div class="battery-detail-image">
+                <img src="images/byd-battery-box.png" alt="BYD Battery-Box Premium HVM">
+              </div>
+              <div class="battery-detail-content">
+                <div class="battery-detail-header">
+                  <div>
+                    <div class="battery-detail-name">BYD Battery-Box Premium HVM</div>
+                  </div>
+                  <div class="battery-detail-specs">
+                    <div class="battery-detail-spec">
+                      <div class="label">Storage</div>
+                      <div class="value">5.12 kWh</div>
+                    </div>
+                    <div class="battery-detail-spec">
+                      <div class="label">Price</div>
+                      <div class="value">$6,000 – $8,000</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="battery-features-label">Notable Features</div>
+                <p class="battery-features-text">
+                  Compatible with 20+ inverter brands with 10 year warranty.
+                  Can add modules up to 12.8 kWh within the same HVS tower.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tesla detail -->
+        <div class="battery-panel" id="panel-tesla">
+          <div class="battery-detail">
+            <div class="battery-detail-layout">
+              <div class="battery-detail-image">
+                <img src="images/tesla-powerwall.png" alt="Tesla Powerwall 3">
+              </div>
+              <div class="battery-detail-content">
+                <div class="battery-detail-header">
+                  <div>
+                    <div class="battery-detail-name">Tesla Powerwall 3</div>
+                  </div>
+                  <div class="battery-detail-specs">
+                    <div class="battery-detail-spec">
+                      <div class="label">Storage</div>
+                      <div class="value">13.5 kWh</div>
+                    </div>
+                    <div class="battery-detail-spec">
+                      <div class="label">Price</div>
+                      <div class="value">$12,000 – $16,000</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="battery-features-label">Notable Features</div>
+                <p class="battery-features-text">
+                  Best if you want backup power and headroom. Built in inverter with 11.5 kW continuous output,
+                  can run larger loads like AC or well pump during an outage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.battery-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.battery-tab').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        var battery = btn.dataset.battery;
+        document.querySelectorAll('.battery-panel').forEach(function (panel) {
+          panel.classList.remove('active');
+        });
+        document.getElementById('panel-' + battery).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
