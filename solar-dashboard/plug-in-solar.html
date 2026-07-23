@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plug-in Solar — Solar Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">Grassroots Solar</div>
+        <div class="subtitle">Intelligence Dashboard</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group-label">Analysis</div>
+        <a href="index.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Executive Summary
+        </a>
+        <a href="demographic-analysis.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Demographic Analysis
+        </a>
+        <div class="nav-group-label">Solar</div>
+        <a href="solar-batteries.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
+          Solar Batteries
+        </a>
+        <a href="financials.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Financials
+        </a>
+        <a href="solar-grants.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Solar Grants
+        </a>
+        <a href="plug-in-solar.html" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          Plug-in Solar
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        Solar Dashboard v1.0<br>
+        July 2026
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <h1>Plug-in Solar</h1>      </header>
+
+      <section class="hero">
+        <div class="hero-label">Plug-in Systems</div>
+        <h2 class="hero-title">Plug-In Solar Options Range from a $325 Microinverter to a Full 800W DIY Kit</h2>
+      </section>
+
+      <section class="content" style="padding: 0;">
+        <div class="battery-section">
+          <div class="battery-eyebrow">Plug-In Solar</div>
+          <h2 class="battery-title">Plug-In Solar Comparison</h2>
+          <p class="battery-description">
+            Outlet-connected solar options compared by output capacity, price, and key differentiators.
+            Select a product tab for full details and notable features.
+          </p>
+
+          <div class="battery-tabs">
+            <button class="battery-tab active" data-target="overview">All Products</button>
+            <button class="battery-tab" data-target="ecoflow">
+              <span class="battery-tab-dot blue"></span> EcoFlow RIVER 3 Plus
+            </button>
+            <button class="battery-tab" data-target="craftstrom">
+              <span class="battery-tab-dot green"></span> CraftStrom 800W Kit
+            </button>
+            <button class="battery-tab" data-target="apsystems">
+              <span class="battery-tab-dot orange"></span> APsystems EZ1
+            </button>
+          </div>
+
+          <!-- Overview panel: name, wattage, cost only -->
+          <div class="battery-panel active" id="panel-overview">
+            <div class="battery-overview-grid">
+              <div class="battery-overview-col">
+                <div class="battery-col-label">Portable Power Station</div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Name</div>
+                  <div class="battery-metric-value name">EcoFlow RIVER 3 Plus Portable Power Station</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Output</div>
+                  <div class="battery-metric-value">600 W</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Price</div>
+                  <div class="battery-metric-value">$350</div>
+                </div>
+              </div>
+              <div class="battery-overview-col">
+                <div class="battery-col-label">Solar + Inverter Kit</div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Name</div>
+                  <div class="battery-metric-value name">CraftStrom 800W Plug-In Solar Kit</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Output</div>
+                  <div class="battery-metric-value">800 W</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Price</div>
+                  <div class="battery-metric-value">$2,031</div>
+                </div>
+              </div>
+              <div class="battery-overview-col">
+                <div class="battery-col-label">Microinverter Only</div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Name</div>
+                  <div class="battery-metric-value name">APsystems EZ1 Plug-In Microinverter</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Output</div>
+                  <div class="battery-metric-value">Microinverter Only</div>
+                </div>
+                <div class="battery-metric">
+                  <div class="battery-metric-label">Price</div>
+                  <div class="battery-metric-value">$325</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EcoFlow RIVER 3 Plus panel -->
+          <div class="battery-panel" id="panel-ecoflow">
+            <div class="battery-detail">
+              <div class="battery-detail-layout">
+                <div class="battery-detail-image">
+                  <img src="images/ecoflow-river-3-plus.png" alt="EcoFlow RIVER 3 Plus Portable Power Station with foldable solar panel">
+                </div>
+                <div class="battery-detail-content">
+                  <div class="battery-detail-header">
+                    <div>
+                      <div class="battery-detail-name">EcoFlow RIVER 3 Plus Portable Power Station</div>
+                    </div>
+                    <div class="battery-detail-specs">
+                      <div class="battery-detail-spec">
+                        <div class="label">Output</div>
+                        <div class="value">600 W</div>
+                      </div>
+                      <div class="battery-detail-spec">
+                        <div class="label">Price</div>
+                        <div class="value">$350</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="battery-features-label">Notable Features</div>
+                  <p class="battery-features-text">
+                    A 286Wh LiFePO4 battery paired with a 45W foldable solar panel, giving customers a self-contained
+                    unit that both generates and stores power rather than requiring a separate battery purchase.
+                    Rated for 600W of continuous output with X-Boost surge support up to 1200W, it can run most
+                    small household electronics and recharges fully from solar in roughly 1.5 hours with a full
+                    220W solar input. Its compact, sub-11-lb design and 3,000-cycle lifespan make it a strong fit
+                    for customers who want an entry-level, highly portable option that doubles as backup power and
+                    an outdoor companion, with the flexibility to expand storage capacity later with an add-on battery.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CraftStrom 800W Kit panel -->
+          <div class="battery-panel" id="panel-craftstrom">
+            <div class="battery-detail">
+              <div class="battery-detail-layout">
+                <div class="battery-detail-image">
+                  <img src="images/craftstrom-800w-kit.png" alt="CraftStrom 800W plug-in solar kit with four bifacial panels and smart inverters">
+                </div>
+                <div class="battery-detail-content">
+                  <div class="battery-detail-header">
+                    <div>
+                      <div class="battery-detail-name">CraftStrom 800W Plug-In Solar Kit</div>
+                    </div>
+                    <div class="battery-detail-specs">
+                      <div class="battery-detail-spec">
+                        <div class="label">Output</div>
+                        <div class="value">800 W</div>
+                      </div>
+                      <div class="battery-detail-spec">
+                        <div class="label">Price</div>
+                        <div class="value">$2,031</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="battery-features-label">Notable Features</div>
+                  <p class="battery-features-text">
+                    A complete DIY solar kit including four 200W bifacial panels, two 400W smart inverters
+                    certified to UL 1741 and IEEE 1547, a Smart PowerMeter, and mounting hardware, all
+                    designed to be installed by the homeowner without a licensed electrician or utility
+                    interconnection agreement. The system connects to any standard outlet and can produce
+                    roughly 1,800–1,900 kWh per year, meaningfully offsetting always-on loads like
+                    refrigerators, routers, and lighting. It's a strong fit for customers who want a full,
+                    scalable plug-in system out of the box and are comfortable with a larger upfront investment
+                    in exchange for the highest output in this category.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- APsystems EZ1 panel -->
+          <div class="battery-panel" id="panel-apsystems">
+            <div class="battery-detail">
+              <div class="battery-detail-layout">
+                <div class="battery-detail-image">
+                  <img src="images/apsystems-ez1.png" alt="APsystems EZ1 plug-in microinverter with wall outlet plug">
+                </div>
+                <div class="battery-detail-content">
+                  <div class="battery-detail-header">
+                    <div>
+                      <div class="battery-detail-name">APsystems EZ1 Plug-In Microinverter</div>
+                    </div>
+                    <div class="battery-detail-specs">
+                      <div class="battery-detail-spec">
+                        <div class="label">Output</div>
+                        <div class="value">Microinverter Only</div>
+                      </div>
+                      <div class="battery-detail-spec">
+                        <div class="label">Price</div>
+                        <div class="value">$325</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="battery-features-label">Notable Features</div>
+                  <p class="battery-features-text">
+                    A grid-tied, microinverter-only unit with no built-in battery, giving customers full flexibility
+                    to choose their own solar panels rather than being locked into a fixed kit. Dual independent
+                    MPPT channels support two panels per unit — recommended in the 315W to 660W range — and built-in
+                    Wi-Fi and Bluetooth connect directly to the APsystems app for real-time monitoring without an
+                    external gateway. It plugs into a standard outlet with the included power cord and is backed
+                    by a 12-year warranty once registered. This is the best option for customers who already own
+                    or plan to source their own panels and want the lowest-cost entry point into plug-in solar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.battery-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.battery-tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.battery-panel').forEach(function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

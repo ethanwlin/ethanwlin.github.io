@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demographic Analysis — Solar Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">Grassroots Solar</div>
+        <div class="subtitle">Intelligence Dashboard</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-group-label">Analysis</div>
+        <a href="index.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Executive Summary
+        </a>
+        <a href="demographic-analysis.html" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Demographic Analysis
+        </a>
+        <div class="nav-group-label">Solar</div>
+        <a href="solar-batteries.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>
+          Solar Batteries
+        </a>
+        <a href="financials.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Financials
+        </a>
+        <a href="solar-grants.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Solar Grants
+        </a>
+        <a href="plug-in-solar.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          Plug-in Solar
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        Solar Dashboard v1.0<br>
+        July 2026
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-header">
+        <h1>Demographic Analysis</h1>      </header>
+
+      <section class="hero">
+        <div class="hero-label">Demographic Overview</div>
+        <h2 class="hero-title">South Bend Outpaces Bloomington on Population, Homeownership, and Housing Affordability</h2>
+      </section>
+
+      <section class="scorecard-section">
+        <div class="scorecard-eyebrow">Cross-Market Comparison</div>
+        <h2 class="scorecard-title">Demographic Scorecard Matrix</h2>
+        <p class="scorecard-legend">
+          Signal: <span class="signal-green">Green</span> favorable,
+          <span class="signal-amber">Amber</span> caution,
+          <span class="signal-red">Red</span> risk.
+          Use the filter to isolate a single market's column.
+        </p>
+
+        <div class="market-filters">
+          <button class="market-filter active" data-market="all">All Markets</button>
+          <button class="market-filter" data-market="south-bend">South Bend, IN</button>
+          <button class="market-filter" data-market="bloomington">Bloomington, IN</button>
+        </div>
+
+        <div class="scorecard-table-wrap">
+          <table class="scorecard-table">
+            <thead>
+              <tr>
+                <th>KPI</th>
+                <th class="market-col col-south-bend">
+                  <div class="market-header">
+                    <span class="market-dot blue"></span>
+                    South Bend, IN
+                  </div>
+                </th>
+                <th class="market-col col-bloomington">
+                  <div class="market-header">
+                    <span class="market-dot green"></span>
+                    Bloomington, IN
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Population</div>
+                  <div class="kpi-category">Market Size</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">103,085</div>
+                  <span class="status-pill green">Large</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">80,049</div>
+                  <span class="status-pill amber">Mid</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Homeownership Rate</div>
+                  <div class="kpi-category">Solar Addressability</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">60.20%</div>
+                  <span class="status-pill green">Strong</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">34.70%</div>
+                  <span class="status-pill red">Low</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Area Median Income</div>
+                  <div class="kpi-category">Purchasing Power</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">$55,768</div>
+                  <span class="status-pill green">Above Avg</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">$50,465</div>
+                  <span class="status-pill amber">Moderate</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Median House Value</div>
+                  <div class="kpi-category">Property Value</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">$140,400</div>
+                  <span class="status-pill green">Accessible</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">$321,400</div>
+                  <span class="status-pill amber">Premium</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name"># Households</div>
+                  <div class="kpi-category">Addressable Units</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">41,000</div>
+                  <span class="status-pill green">Large</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">34,500</div>
+                  <span class="status-pill amber">Mid</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Median Age</div>
+                  <div class="kpi-category">Demographic Profile</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">34.8</div>
+                  <span class="status-pill amber">Stable</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">25.1</div>
+                  <span class="status-pill green">Young</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Median House Construction Year</div>
+                  <div class="kpi-category">Housing Stock Age</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">1955</div>
+                  <span class="status-pill amber">Older Stock</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">1985</div>
+                  <span class="status-pill green">Newer</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Wage GINI</div>
+                  <div class="kpi-category">Income Inequality</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">0.442</div>
+                  <span class="status-pill amber">Moderate</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">0.442</div>
+                  <span class="status-pill amber">Moderate</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="kpi-cell">
+                  <div class="kpi-name">Energy Burden</div>
+                  <div class="kpi-category">Solar Motivation</div>
+                </td>
+                <td class="value-cell col-south-bend">
+                  <div class="cell-value">3%</div>
+                  <span class="status-pill green">Low</span>
+                </td>
+                <td class="value-cell col-bloomington">
+                  <div class="cell-value">3%</div>
+                  <span class="status-pill green">Low</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="map-section">
+          <div class="map-section-eyebrow">Interactive Maps</div>
+          <h3 class="map-section-title">Household Income by Neighborhood</h3>
+
+          <div class="map-tabs">
+            <button class="map-tab active" data-map="south-bend">South Bend, IN</button>
+            <button class="map-tab" data-map="bloomington">Bloomington, IN</button>
+          </div>
+
+          <div class="map-frame-wrap">
+            <iframe
+              class="map-frame active"
+              id="map-south-bend"
+              src="https://bestneighborhood.org/household-income-south-bend-in/"
+              title="South Bend Household Income Map"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+            <iframe
+              class="map-frame"
+              id="map-bloomington"
+              src="https://bestneighborhood.org/household-income-bloomington-in/"
+              title="Bloomington Household Income Map"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+            <div class="map-attribution">
+              Map data from
+              <a href="https://bestneighborhood.org/" target="_blank" rel="noopener noreferrer">BestNeighborhood.org</a>.
+              <span id="map-link-label">Viewing: </span>
+              <a id="map-external-link" href="https://bestneighborhood.org/household-income-south-bend-in/" target="_blank" rel="noopener noreferrer">South Bend household income map</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.market-filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.market-filter').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        var market = btn.dataset.market;
+        var cols = document.querySelectorAll('.col-south-bend, .col-bloomington');
+
+        if (market === 'all') {
+          cols.forEach(function (col) { col.classList.remove('col-hidden'); });
+        } else if (market === 'south-bend') {
+          document.querySelectorAll('.col-south-bend').forEach(function (col) { col.classList.remove('col-hidden'); });
+          document.querySelectorAll('.col-bloomington').forEach(function (col) { col.classList.add('col-hidden'); });
+        } else {
+          document.querySelectorAll('.col-bloomington').forEach(function (col) { col.classList.remove('col-hidden'); });
+          document.querySelectorAll('.col-south-bend').forEach(function (col) { col.classList.add('col-hidden'); });
+        }
+      });
+    });
+
+    var mapLinks = {
+      'south-bend': {
+        url: 'https://bestneighborhood.org/household-income-south-bend-in/',
+        label: 'South Bend household income map'
+      },
+      'bloomington': {
+        url: 'https://bestneighborhood.org/household-income-bloomington-in/',
+        label: 'Bloomington household income map'
+      }
+    };
+
+    document.querySelectorAll('.map-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.map-tab').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        var map = btn.dataset.map;
+        document.querySelectorAll('.map-frame').forEach(function (frame) {
+          frame.classList.remove('active');
+        });
+        document.getElementById('map-' + map).classList.add('active');
+
+        var link = mapLinks[map];
+        document.getElementById('map-external-link').href = link.url;
+        document.getElementById('map-external-link').textContent = link.label;
+      });
+    });
+  </script>
+</body>
+</html>
