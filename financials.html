@@ -941,15 +941,17 @@ body {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--border-light);
+      border-bottom: none;
       margin-bottom: 40px;
     }
 
     .financials-summary-card {
       padding: 24px 28px;
       border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .financials-summary-card:last-child {
+    .financials-summary-card:nth-child(3n) {
       border-right: none;
     }
 
@@ -989,9 +991,149 @@ body {
       }
       .financials-summary-card {
         border-right: none;
-        border-bottom: 1px solid var(--border-light);
       }
       .financials-summary-card:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .funding-chart-wrap {
+      border: 1px solid var(--border-light);
+      border-top: none;
+      padding: 20px 20px 8px;
+      background: #fff;
+    }
+
+    .funding-chart-caption {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .roi-chart {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Funding scenario comparison */
+    .funding-section {
+      background: #fff;
+      padding: 32px;
+      margin: 24px 32px 0;
+    }
+
+    .funding-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .funding-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .funding-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .funding-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 28px;
+    }
+
+    .funding-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .funding-tab:hover {
+      color: var(--text-primary);
+    }
+
+    .funding-tab.active {
+      color: var(--accent-red);
+      border-bottom-color: var(--accent-red);
+    }
+
+    .funding-panel {
+      display: none;
+    }
+
+    .funding-panel.active {
+      display: block;
+    }
+
+    .funding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border-light);
+    }
+
+    .funding-card {
+      padding: 24px 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .funding-card:last-child {
+      border-right: none;
+    }
+
+    .funding-card-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .funding-card-value {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--accent-red);
+      line-height: 1.2;
+    }
+
+    .funding-card-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .funding-grid {
+        grid-template-columns: 1fr;
+      }
+      .funding-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .funding-card:last-child {
         border-bottom: none;
       }
     }
@@ -1159,31 +1301,366 @@ body {
 
       <section class="hero">
         <div class="hero-label">Financial Overview</div>
-        <h2 class="hero-title">ROI, cost breakdowns, and financial projections will appear here.</h2>
+        <h2 class="hero-title">Funding Level Shapes Payback Time, From Under 5 Years to Nearly 25</h2>
+      </section>
+
+      <section class="funding-section">
+        <div class="funding-eyebrow">Funding Scenarios</div>
+        <h2 class="funding-title">Funding Scenario Comparison</h2>
+        <p class="funding-subtitle">Break-even point, net savings, and total system cost over 25 years for a 5 kW residential system, by share of upfront cost covered by funding.</p>
+
+        <div class="funding-tabs">
+          <button class="funding-tab active" data-funding="0">0% Funding</button>
+          <button class="funding-tab" data-funding="25">25% Funding</button>
+          <button class="funding-tab" data-funding="50">50% Funding</button>
+          <button class="funding-tab" data-funding="75">75% Funding</button>
+        </div>
+
+        <div class="funding-panel active" id="funding-panel-0">
+          <div class="funding-grid">
+            <div class="funding-card">
+              <div class="funding-card-label">Break-Even Point</div>
+              <div class="funding-card-value">24.64 yrs</div>
+              <div class="funding-card-note">Time for cumulative energy savings to offset the total system cost.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Net Savings, 25 Yr</div>
+              <div class="funding-card-value">$310.70</div>
+              <div class="funding-card-note">Savings remaining after system cost over a 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Total System Cost</div>
+              <div class="funding-card-value">$12,939.31</div>
+              <div class="funding-card-note">Upfront cost after 0% of the system is covered by funding.</div>
+            </div>
+          </div>
+          <div class="funding-chart-wrap">
+            <svg class="roi-chart" viewBox="0 0 760 280" width="100%" height="220" preserveAspectRatio="xMidYMid meet">
+              <line x1="66" y1="246.00" x2="740" y2="246.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="250.00" text-anchor="end" font-size="10" fill="#888">-$13.2k</text>
+              <line x1="66" y1="192.00" x2="740" y2="192.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="196.00" text-anchor="end" font-size="10" fill="#888">-$9.6k</text>
+              <line x1="66" y1="138.00" x2="740" y2="138.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="142.00" text-anchor="end" font-size="10" fill="#888">-$6.0k</text>
+              <line x1="66" y1="84.00" x2="740" y2="84.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="88.00" text-anchor="end" font-size="10" fill="#888">-$2.3k</text>
+              <line x1="66" y1="30.00" x2="740" y2="30.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="34.00" text-anchor="end" font-size="10" fill="#888">$1.3k</text>
+              <line x1="66" y1="49.51" x2="740" y2="49.51" stroke="#999" stroke-width="1" stroke-dasharray="4,3"></line>
+              <line x1="729.89" y1="30" x2="729.89" y2="246" stroke="#388e3c" stroke-width="1.5" stroke-dasharray="5,4"></line>
+              <polyline points="66.00,231.10 94.08,220.32 122.17,212.81 150.25,201.41 178.33,193.51 206.42,181.45 234.50,173.15 262.58,160.39 290.67,151.66 318.75,138.16 346.83,176.10 374.92,161.83 403.00,152.19 431.08,137.08 459.17,126.95 487.25,110.98 515.33,100.34 543.42,83.43 571.50,72.26 599.58,54.38 627.67,109.09 655.75,90.18 683.83,77.85 711.92,57.85 740.00,44.90" fill="none" stroke="#c0392b" stroke-width="2"></polyline>
+              <circle cx="66.00" cy="231.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="94.08" cy="220.32" r="2.2" fill="#c0392b"></circle>
+              <circle cx="122.17" cy="212.81" r="2.2" fill="#c0392b"></circle>
+              <circle cx="150.25" cy="201.41" r="2.2" fill="#c0392b"></circle>
+              <circle cx="178.33" cy="193.51" r="2.2" fill="#c0392b"></circle>
+              <circle cx="206.42" cy="181.45" r="2.2" fill="#c0392b"></circle>
+              <circle cx="234.50" cy="173.15" r="2.2" fill="#c0392b"></circle>
+              <circle cx="262.58" cy="160.39" r="2.2" fill="#c0392b"></circle>
+              <circle cx="290.67" cy="151.66" r="2.2" fill="#c0392b"></circle>
+              <circle cx="318.75" cy="138.16" r="2.2" fill="#c0392b"></circle>
+              <circle cx="346.83" cy="176.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="374.92" cy="161.83" r="2.2" fill="#c0392b"></circle>
+              <circle cx="403.00" cy="152.19" r="2.2" fill="#c0392b"></circle>
+              <circle cx="431.08" cy="137.08" r="2.2" fill="#c0392b"></circle>
+              <circle cx="459.17" cy="126.95" r="2.2" fill="#c0392b"></circle>
+              <circle cx="487.25" cy="110.98" r="2.2" fill="#c0392b"></circle>
+              <circle cx="515.33" cy="100.34" r="2.2" fill="#c0392b"></circle>
+              <circle cx="543.42" cy="83.43" r="2.2" fill="#c0392b"></circle>
+              <circle cx="571.50" cy="72.26" r="2.2" fill="#c0392b"></circle>
+              <circle cx="599.58" cy="54.38" r="2.2" fill="#c0392b"></circle>
+              <circle cx="627.67" cy="109.09" r="2.2" fill="#c0392b"></circle>
+              <circle cx="655.75" cy="90.18" r="2.2" fill="#c0392b"></circle>
+              <circle cx="683.83" cy="77.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="711.92" cy="57.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="740.00" cy="44.90" r="2.2" fill="#c0392b"></circle>
+              <circle cx="729.89" cy="49.51" r="5" fill="#388e3c" stroke="#fff" stroke-width="1.5"></circle>
+              <text x="66.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 1</text>
+              <text x="178.33" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 5</text>
+              <text x="318.75" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 10</text>
+              <text x="459.17" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 15</text>
+              <text x="599.58" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 20</text>
+              <text x="740.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 25</text>
+              <text x="723.89" y="20" text-anchor="end" font-size="10.5" font-weight="700" fill="#388e3c">Break-even: 24.64 yrs</text>
+            </svg>
+            <p class="funding-chart-caption">Cumulative return on investment by year, 5 kW system with 0% funding. The dashed green line marks the break-even point.</p>
+          </div>
+        </div>
+
+        <div class="funding-panel" id="funding-panel-25">
+          <div class="funding-grid">
+            <div class="funding-card">
+              <div class="funding-card-label">Break-Even Point</div>
+              <div class="funding-card-value">21.61 yrs</div>
+              <div class="funding-card-note">Point after which cumulative savings stay positive for the rest of the 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Net Savings, 25 Yr</div>
+              <div class="funding-card-value">$3,545.52</div>
+              <div class="funding-card-note">Savings remaining after system cost over a 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Total System Cost</div>
+              <div class="funding-card-value">$9,704.48</div>
+              <div class="funding-card-note">Upfront cost after 25% of the system is covered by funding.</div>
+            </div>
+          </div>
+          <div class="funding-chart-wrap">
+            <svg class="roi-chart" viewBox="0 0 760 280" width="100%" height="220" preserveAspectRatio="xMidYMid meet">
+              <line x1="66" y1="246.00" x2="740" y2="246.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="250.00" text-anchor="end" font-size="10" fill="#888">-$10.0k</text>
+              <line x1="66" y1="192.00" x2="740" y2="192.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="196.00" text-anchor="end" font-size="10" fill="#888">-$6.4k</text>
+              <line x1="66" y1="138.00" x2="740" y2="138.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="142.00" text-anchor="end" font-size="10" fill="#888">-$2.7k</text>
+              <line x1="66" y1="84.00" x2="740" y2="84.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="88.00" text-anchor="end" font-size="10" fill="#888">$911</text>
+              <line x1="66" y1="30.00" x2="740" y2="30.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="34.00" text-anchor="end" font-size="10" fill="#888">$4.5k</text>
+              <line x1="66" y1="97.53" x2="740" y2="97.53" stroke="#999" stroke-width="1" stroke-dasharray="4,3"></line>
+              <line x1="644.95" y1="30" x2="644.95" y2="246" stroke="#388e3c" stroke-width="1.5" stroke-dasharray="5,4"></line>
+              <polyline points="66.00,231.10 94.08,220.32 122.17,212.81 150.25,201.41 178.33,193.51 206.42,181.45 234.50,173.15 262.58,160.39 290.67,151.66 318.75,138.16 346.83,176.10 374.92,161.83 403.00,152.19 431.08,137.08 459.17,126.95 487.25,110.98 515.33,100.34 543.42,83.43 571.50,72.26 599.58,54.38 627.67,109.09 655.75,90.18 683.83,77.85 711.92,57.85 740.00,44.90" fill="none" stroke="#c0392b" stroke-width="2"></polyline>
+              <circle cx="66.00" cy="231.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="94.08" cy="220.32" r="2.2" fill="#c0392b"></circle>
+              <circle cx="122.17" cy="212.81" r="2.2" fill="#c0392b"></circle>
+              <circle cx="150.25" cy="201.41" r="2.2" fill="#c0392b"></circle>
+              <circle cx="178.33" cy="193.51" r="2.2" fill="#c0392b"></circle>
+              <circle cx="206.42" cy="181.45" r="2.2" fill="#c0392b"></circle>
+              <circle cx="234.50" cy="173.15" r="2.2" fill="#c0392b"></circle>
+              <circle cx="262.58" cy="160.39" r="2.2" fill="#c0392b"></circle>
+              <circle cx="290.67" cy="151.66" r="2.2" fill="#c0392b"></circle>
+              <circle cx="318.75" cy="138.16" r="2.2" fill="#c0392b"></circle>
+              <circle cx="346.83" cy="176.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="374.92" cy="161.83" r="2.2" fill="#c0392b"></circle>
+              <circle cx="403.00" cy="152.19" r="2.2" fill="#c0392b"></circle>
+              <circle cx="431.08" cy="137.08" r="2.2" fill="#c0392b"></circle>
+              <circle cx="459.17" cy="126.95" r="2.2" fill="#c0392b"></circle>
+              <circle cx="487.25" cy="110.98" r="2.2" fill="#c0392b"></circle>
+              <circle cx="515.33" cy="100.34" r="2.2" fill="#c0392b"></circle>
+              <circle cx="543.42" cy="83.43" r="2.2" fill="#c0392b"></circle>
+              <circle cx="571.50" cy="72.26" r="2.2" fill="#c0392b"></circle>
+              <circle cx="599.58" cy="54.38" r="2.2" fill="#c0392b"></circle>
+              <circle cx="627.67" cy="109.09" r="2.2" fill="#c0392b"></circle>
+              <circle cx="655.75" cy="90.18" r="2.2" fill="#c0392b"></circle>
+              <circle cx="683.83" cy="77.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="711.92" cy="57.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="740.00" cy="44.90" r="2.2" fill="#c0392b"></circle>
+              <circle cx="644.95" cy="97.53" r="5" fill="#388e3c" stroke="#fff" stroke-width="1.5"></circle>
+              <text x="66.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 1</text>
+              <text x="178.33" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 5</text>
+              <text x="318.75" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 10</text>
+              <text x="459.17" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 15</text>
+              <text x="599.58" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 20</text>
+              <text x="740.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 25</text>
+              <text x="638.95" y="20" text-anchor="end" font-size="10.5" font-weight="700" fill="#388e3c">Break-even: 21.61 yrs</text>
+            </svg>
+            <p class="funding-chart-caption">Cumulative return on investment by year, 5 kW system with 25% funding. The dashed green line marks the point after which the investment stays positive for the rest of the period.</p>
+          </div>
+        </div>
+
+        <div class="funding-panel" id="funding-panel-50">
+          <div class="funding-grid">
+            <div class="funding-card">
+              <div class="funding-card-label">Break-Even Point</div>
+              <div class="funding-card-value">13.44 yrs</div>
+              <div class="funding-card-note">Point after which cumulative savings stay positive for the rest of the 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Net Savings, 25 Yr</div>
+              <div class="funding-card-value">$6,780.35</div>
+              <div class="funding-card-note">Savings remaining after system cost over a 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Total System Cost</div>
+              <div class="funding-card-value">$6,469.66</div>
+              <div class="funding-card-note">Upfront cost after 50% of the system is covered by funding.</div>
+            </div>
+          </div>
+          <div class="funding-chart-wrap">
+            <svg class="roi-chart" viewBox="0 0 760 280" width="100%" height="220" preserveAspectRatio="xMidYMid meet">
+              <line x1="66" y1="246.00" x2="740" y2="246.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="250.00" text-anchor="end" font-size="10" fill="#888">-$6.8k</text>
+              <line x1="66" y1="192.00" x2="740" y2="192.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="196.00" text-anchor="end" font-size="10" fill="#888">-$3.1k</text>
+              <line x1="66" y1="138.00" x2="740" y2="138.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="142.00" text-anchor="end" font-size="10" fill="#888">$508</text>
+              <line x1="66" y1="84.00" x2="740" y2="84.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="88.00" text-anchor="end" font-size="10" fill="#888">$4.1k</text>
+              <line x1="66" y1="30.00" x2="740" y2="30.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="34.00" text-anchor="end" font-size="10" fill="#888">$7.8k</text>
+              <line x1="66" y1="145.55" x2="740" y2="145.55" stroke="#999" stroke-width="1" stroke-dasharray="4,3"></line>
+              <line x1="415.36" y1="30" x2="415.36" y2="246" stroke="#388e3c" stroke-width="1.5" stroke-dasharray="5,4"></line>
+              <polyline points="66.00,231.10 94.08,220.32 122.17,212.81 150.25,201.41 178.33,193.51 206.42,181.45 234.50,173.15 262.58,160.39 290.67,151.66 318.75,138.16 346.83,176.10 374.92,161.83 403.00,152.19 431.08,137.08 459.17,126.95 487.25,110.98 515.33,100.34 543.42,83.43 571.50,72.26 599.58,54.38 627.67,109.09 655.75,90.18 683.83,77.85 711.92,57.85 740.00,44.90" fill="none" stroke="#c0392b" stroke-width="2"></polyline>
+              <circle cx="66.00" cy="231.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="94.08" cy="220.32" r="2.2" fill="#c0392b"></circle>
+              <circle cx="122.17" cy="212.81" r="2.2" fill="#c0392b"></circle>
+              <circle cx="150.25" cy="201.41" r="2.2" fill="#c0392b"></circle>
+              <circle cx="178.33" cy="193.51" r="2.2" fill="#c0392b"></circle>
+              <circle cx="206.42" cy="181.45" r="2.2" fill="#c0392b"></circle>
+              <circle cx="234.50" cy="173.15" r="2.2" fill="#c0392b"></circle>
+              <circle cx="262.58" cy="160.39" r="2.2" fill="#c0392b"></circle>
+              <circle cx="290.67" cy="151.66" r="2.2" fill="#c0392b"></circle>
+              <circle cx="318.75" cy="138.16" r="2.2" fill="#c0392b"></circle>
+              <circle cx="346.83" cy="176.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="374.92" cy="161.83" r="2.2" fill="#c0392b"></circle>
+              <circle cx="403.00" cy="152.19" r="2.2" fill="#c0392b"></circle>
+              <circle cx="431.08" cy="137.08" r="2.2" fill="#c0392b"></circle>
+              <circle cx="459.17" cy="126.95" r="2.2" fill="#c0392b"></circle>
+              <circle cx="487.25" cy="110.98" r="2.2" fill="#c0392b"></circle>
+              <circle cx="515.33" cy="100.34" r="2.2" fill="#c0392b"></circle>
+              <circle cx="543.42" cy="83.43" r="2.2" fill="#c0392b"></circle>
+              <circle cx="571.50" cy="72.26" r="2.2" fill="#c0392b"></circle>
+              <circle cx="599.58" cy="54.38" r="2.2" fill="#c0392b"></circle>
+              <circle cx="627.67" cy="109.09" r="2.2" fill="#c0392b"></circle>
+              <circle cx="655.75" cy="90.18" r="2.2" fill="#c0392b"></circle>
+              <circle cx="683.83" cy="77.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="711.92" cy="57.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="740.00" cy="44.90" r="2.2" fill="#c0392b"></circle>
+              <circle cx="415.36" cy="145.55" r="5" fill="#388e3c" stroke="#fff" stroke-width="1.5"></circle>
+              <text x="66.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 1</text>
+              <text x="178.33" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 5</text>
+              <text x="318.75" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 10</text>
+              <text x="459.17" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 15</text>
+              <text x="599.58" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 20</text>
+              <text x="740.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 25</text>
+              <text x="415.36" y="20" text-anchor="middle" font-size="10.5" font-weight="700" fill="#388e3c">Break-even: 13.44 yrs</text>
+            </svg>
+            <p class="funding-chart-caption">Cumulative return on investment by year, 5 kW system with 50% funding. The dashed green line marks the point after which the investment stays positive for the rest of the period.</p>
+          </div>
+        </div>
+
+        <div class="funding-panel" id="funding-panel-75">
+          <div class="funding-grid">
+            <div class="funding-card">
+              <div class="funding-card-label">Break-Even Point</div>
+              <div class="funding-card-value">4.99 yrs</div>
+              <div class="funding-card-note">Time for cumulative energy savings to offset the total system cost.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Net Savings, 25 Yr</div>
+              <div class="funding-card-value">$10,015.18</div>
+              <div class="funding-card-note">Savings remaining after system cost over a 25-year period.</div>
+            </div>
+            <div class="funding-card">
+              <div class="funding-card-label">Total System Cost</div>
+              <div class="funding-card-value">$3,234.83</div>
+              <div class="funding-card-note">Upfront cost after 75% of the system is covered by funding.</div>
+            </div>
+          </div>
+          <div class="funding-chart-wrap">
+            <svg class="roi-chart" viewBox="0 0 760 280" width="100%" height="220" preserveAspectRatio="xMidYMid meet">
+              <line x1="66" y1="246.00" x2="740" y2="246.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="250.00" text-anchor="end" font-size="10" fill="#888">-$3.5k</text>
+              <line x1="66" y1="192.00" x2="740" y2="192.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="196.00" text-anchor="end" font-size="10" fill="#888">$106</text>
+              <line x1="66" y1="138.00" x2="740" y2="138.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="142.00" text-anchor="end" font-size="10" fill="#888">$3.7k</text>
+              <line x1="66" y1="84.00" x2="740" y2="84.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="88.00" text-anchor="end" font-size="10" fill="#888">$7.4k</text>
+              <line x1="66" y1="30.00" x2="740" y2="30.00" stroke="#ededed" stroke-width="1"></line>
+              <text x="58" y="34.00" text-anchor="end" font-size="10" fill="#888">$11.0k</text>
+              <line x1="66" y1="193.57" x2="740" y2="193.57" stroke="#999" stroke-width="1" stroke-dasharray="4,3"></line>
+              <line x1="178.05" y1="30" x2="178.05" y2="246" stroke="#388e3c" stroke-width="1.5" stroke-dasharray="5,4"></line>
+              <polyline points="66.00,231.10 94.08,220.32 122.17,212.81 150.25,201.41 178.33,193.51 206.42,181.45 234.50,173.15 262.58,160.39 290.67,151.66 318.75,138.16 346.83,176.10 374.92,161.83 403.00,152.19 431.08,137.08 459.17,126.95 487.25,110.98 515.33,100.34 543.42,83.43 571.50,72.26 599.58,54.38 627.67,109.09 655.75,90.18 683.83,77.85 711.92,57.85 740.00,44.90" fill="none" stroke="#c0392b" stroke-width="2"></polyline>
+              <circle cx="66.00" cy="231.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="94.08" cy="220.32" r="2.2" fill="#c0392b"></circle>
+              <circle cx="122.17" cy="212.81" r="2.2" fill="#c0392b"></circle>
+              <circle cx="150.25" cy="201.41" r="2.2" fill="#c0392b"></circle>
+              <circle cx="178.33" cy="193.51" r="2.2" fill="#c0392b"></circle>
+              <circle cx="206.42" cy="181.45" r="2.2" fill="#c0392b"></circle>
+              <circle cx="234.50" cy="173.15" r="2.2" fill="#c0392b"></circle>
+              <circle cx="262.58" cy="160.39" r="2.2" fill="#c0392b"></circle>
+              <circle cx="290.67" cy="151.66" r="2.2" fill="#c0392b"></circle>
+              <circle cx="318.75" cy="138.16" r="2.2" fill="#c0392b"></circle>
+              <circle cx="346.83" cy="176.10" r="2.2" fill="#c0392b"></circle>
+              <circle cx="374.92" cy="161.83" r="2.2" fill="#c0392b"></circle>
+              <circle cx="403.00" cy="152.19" r="2.2" fill="#c0392b"></circle>
+              <circle cx="431.08" cy="137.08" r="2.2" fill="#c0392b"></circle>
+              <circle cx="459.17" cy="126.95" r="2.2" fill="#c0392b"></circle>
+              <circle cx="487.25" cy="110.98" r="2.2" fill="#c0392b"></circle>
+              <circle cx="515.33" cy="100.34" r="2.2" fill="#c0392b"></circle>
+              <circle cx="543.42" cy="83.43" r="2.2" fill="#c0392b"></circle>
+              <circle cx="571.50" cy="72.26" r="2.2" fill="#c0392b"></circle>
+              <circle cx="599.58" cy="54.38" r="2.2" fill="#c0392b"></circle>
+              <circle cx="627.67" cy="109.09" r="2.2" fill="#c0392b"></circle>
+              <circle cx="655.75" cy="90.18" r="2.2" fill="#c0392b"></circle>
+              <circle cx="683.83" cy="77.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="711.92" cy="57.85" r="2.2" fill="#c0392b"></circle>
+              <circle cx="740.00" cy="44.90" r="2.2" fill="#c0392b"></circle>
+              <circle cx="178.05" cy="193.57" r="5" fill="#388e3c" stroke="#fff" stroke-width="1.5"></circle>
+              <text x="66.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 1</text>
+              <text x="178.33" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 5</text>
+              <text x="318.75" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 10</text>
+              <text x="459.17" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 15</text>
+              <text x="599.58" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 20</text>
+              <text x="740.00" y="262" text-anchor="middle" font-size="10" fill="#888">Yr 25</text>
+              <text x="178.05" y="20" text-anchor="middle" font-size="10.5" font-weight="700" fill="#388e3c">Break-even: 4.99 yrs</text>
+            </svg>
+            <p class="funding-chart-caption">Cumulative return on investment by year, 5 kW system with 75% funding. The dashed green line marks the break-even point.</p>
+          </div>
+        </div>
       </section>
 
       <section class="financials-section">
         <div class="financials-eyebrow">Financial Overview</div>
         <h2 class="financials-title">Solar Investment Summary</h2>
-        <p class="financials-subtitle">Figures below are for a 5 kW solar panel system.</p>
-        <div class="placeholder-note">Placeholder figures &mdash; replace X with actual project numbers</div>
+        <p class="financials-subtitle">Figures below are for a 7 kW solar panel system.</p>
 
         <div class="financials-summary-grid">
           <div class="financials-summary-card">
-            <div class="financials-summary-label">Net Savings Over 20 Years</div>
-            <div class="financials-summary-value">$X</div>
-            <div class="financials-summary-subvalue">X% return</div>
-            <div class="financials-summary-note">Estimated lifetime savings after system cost, based on projected utility rates over a 20-year period.</div>
+            <div class="financials-summary-label">Net Savings Over 25 Years</div>
+            <div class="financials-summary-value">$9,106</div>
+            <div class="financials-summary-note">Estimated lifetime savings after system cost, based on projected utility rates over a 25-year period.</div>
           </div>
           <div class="financials-summary-card">
             <div class="financials-summary-label">Payback Period</div>
-            <div class="financials-summary-value">X years</div>
+            <div class="financials-summary-value">12.1 years</div>
             <div class="financials-summary-note">Time required for cumulative energy savings to offset the total upfront system cost.</div>
           </div>
           <div class="financials-summary-card">
             <div class="financials-summary-label">System Size</div>
-            <div class="financials-summary-value">5 kW</div>
-            <div class="financials-summary-note">All figures on this page are modeled for a 5 kW residential solar panel installation.</div>
+            <div class="financials-summary-value">7 kW</div>
+            <div class="financials-summary-note">All figures on this page are modeled for a 7 kW residential solar panel installation.</div>
+          </div>
+          <div class="financials-summary-card">
+            <div class="financials-summary-label">Average Annual Energy Savings</div>
+            <div class="financials-summary-value">$706.12</div>
+            <div class="financials-summary-note">Estimated average savings on energy costs per year.</div>
+          </div>
+          <div class="financials-summary-card">
+            <div class="financials-summary-label">Savings Through Sweat Equity Model</div>
+            <div class="financials-summary-value">43%</div>
+            <div class="financials-summary-note">Share of total installation cost offset by the sweat equity (self-install labor) model.</div>
+          </div>
+        </div>
+
+        <div class="usage-section">
+          <h3 class="usage-title">Installation Cost Distribution</h3>
+          <p class="usage-subtitle">Share of total installed cost by component, for a 7 kW residential system. Hover over a slice (or a legend row) to see the exact percentage.</p>
+
+          <div class="usage-layout">
+            <div class="usage-chart-wrap">
+              <svg viewBox="0 0 320 320" width="320" height="320" id="cost-pie">
+              <path class="pie-slice" d="M160,160 L160.00,10.00 A150,150 0 0 1 310.00,160.00 Z" fill="#c0392b" data-name="Solar Panel" data-pct="25.0"></path>
+              <path class="pie-slice" d="M160,160 L310.00,160.00 A150,150 0 0 1 291.45,232.26 Z" fill="#e67e22" data-name="Inverter" data-pct="8.0"></path>
+              <path class="pie-slice" d="M160,160 L291.45,232.26 A150,150 0 0 1 240.37,286.65 Z" fill="#f5b041" data-name="Mounting & Racking" data-pct="8.0"></path>
+              <path class="pie-slice" d="M160,160 L240.37,286.65 A150,150 0 0 1 127.28,306.39 Z" fill="#388e3c" data-name="Wiring & Electrical" data-pct="12.5"></path>
+              <path class="pie-slice" d="M160,160 L127.28,306.39 A150,150 0 0 1 96.13,295.72 Z" fill="#1976d2" data-name="Permits & Inspections" data-pct="3.5"></path>
+              <path class="pie-slice" d="M160,160 L96.13,295.72 A150,150 0 0 1 160.00,10.00 Z" fill="#8e44ad" data-name="Labor and Installation" data-pct="43.0"></path>
+              </svg>
+              <div class="usage-tooltip" id="cost-tooltip">
+                <div class="tooltip-name" id="cost-tooltip-name"></div>
+                <div class="tooltip-pct" id="cost-tooltip-pct"></div>
+              </div>
+            </div>
+            <ul class="usage-legend" id="cost-legend">
+              <li data-name="Solar Panel"><span class="legend-swatch" style="background:#c0392b"></span><span class="legend-name">Solar Panel</span><span class="legend-pct">25.0%</span></li>
+              <li data-name="Inverter"><span class="legend-swatch" style="background:#e67e22"></span><span class="legend-name">Inverter</span><span class="legend-pct">8.0%</span></li>
+              <li data-name="Mounting & Racking"><span class="legend-swatch" style="background:#f5b041"></span><span class="legend-name">Mounting & Racking</span><span class="legend-pct">8.0%</span></li>
+              <li data-name="Wiring & Electrical"><span class="legend-swatch" style="background:#388e3c"></span><span class="legend-name">Wiring & Electrical</span><span class="legend-pct">12.5%</span></li>
+              <li data-name="Permits & Inspections"><span class="legend-swatch" style="background:#1976d2"></span><span class="legend-name">Permits & Inspections</span><span class="legend-pct">3.5%</span></li>
+              <li data-name="Labor and Installation"><span class="legend-swatch" style="background:#8e44ad"></span><span class="legend-name">Labor and Installation</span><span class="legend-pct">43.0%</span></li>
+            </ul>
           </div>
         </div>
 
@@ -1232,69 +1709,86 @@ body {
     </main>
   </div>
   <script>
-    (function () {
-      var chartWrap = document.querySelector('.usage-chart-wrap');
-      var tooltip = document.getElementById('usage-tooltip');
-      var tooltipName = document.getElementById('tooltip-name');
-      var tooltipPct = document.getElementById('tooltip-pct');
-      var slices = document.querySelectorAll('.pie-slice');
-      var legendItems = document.querySelectorAll('#usage-legend li');
-
-      function showTooltip(name, pct, evt) {
-        tooltipName.textContent = name;
-        tooltipPct.textContent = pct + '% of monthly usage';
-        var rect = chartWrap.getBoundingClientRect();
-        var x = evt.clientX - rect.left;
-        var y = evt.clientY - rect.top;
-        tooltip.style.left = x + 'px';
-        tooltip.style.top = y + 'px';
-        tooltip.classList.add('visible');
-      }
-
-      function hideTooltip() {
-        tooltip.classList.remove('visible');
-      }
-
-      function highlightLegend(name) {
-        legendItems.forEach(function (li) {
-          li.classList.toggle('active', li.getAttribute('data-name') === name);
-        });
-      }
-
-      function clearHighlight() {
-        legendItems.forEach(function (li) { li.classList.remove('active'); });
-      }
-
-      slices.forEach(function (slice) {
-        var name = slice.getAttribute('data-name');
-        var pct = slice.getAttribute('data-pct');
-
-        slice.addEventListener('mousemove', function (evt) {
-          showTooltip(name, pct, evt);
-        });
-        slice.addEventListener('mouseenter', function () {
-          highlightLegend(name);
-        });
-        slice.addEventListener('mouseleave', function () {
-          hideTooltip();
-          clearHighlight();
-        });
+    document.querySelectorAll('.funding-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.funding-tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.funding-panel').forEach(function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById('funding-panel-' + tab.dataset.funding).classList.add('active');
       });
+    });
+  </script>
+  <script>
+    (function () {
+      var chartWraps = document.querySelectorAll('.usage-chart-wrap');
 
-      legendItems.forEach(function (li) {
-        var name = li.getAttribute('data-name');
-        li.addEventListener('mouseenter', function () {
-          li.classList.add('active');
-          slices.forEach(function (s) {
-            if (s.getAttribute('data-name') === name) {
-              s.dispatchEvent(new Event('mouseenter'));
-              s.style.opacity = '0.85';
-            }
+      chartWraps.forEach(function (chartWrap) {
+        var tooltip = chartWrap.querySelector('.usage-tooltip');
+        var tooltipName = tooltip.querySelector('.tooltip-name');
+        var tooltipPct = tooltip.querySelector('.tooltip-pct');
+        var slices = chartWrap.querySelectorAll('.pie-slice');
+        var legendList = chartWrap.parentElement.querySelector('.usage-legend');
+        var legendItems = legendList.querySelectorAll('li');
+        var unitLabel = chartWrap.closest('.usage-section').querySelector('.usage-title').textContent.indexOf('Cost') !== -1
+          ? '% of total installed cost'
+          : '% of monthly usage';
+
+        function showTooltip(name, pct, evt) {
+          tooltipName.textContent = name;
+          tooltipPct.textContent = pct + unitLabel;
+          var rect = chartWrap.getBoundingClientRect();
+          var x = evt.clientX - rect.left;
+          var y = evt.clientY - rect.top;
+          tooltip.style.left = x + 'px';
+          tooltip.style.top = y + 'px';
+          tooltip.classList.add('visible');
+        }
+
+        function hideTooltip() {
+          tooltip.classList.remove('visible');
+        }
+
+        function highlightLegend(name) {
+          legendItems.forEach(function (li) {
+            li.classList.toggle('active', li.getAttribute('data-name') === name);
+          });
+        }
+
+        function clearHighlight() {
+          legendItems.forEach(function (li) { li.classList.remove('active'); });
+        }
+
+        slices.forEach(function (slice) {
+          var name = slice.getAttribute('data-name');
+          var pct = slice.getAttribute('data-pct');
+
+          slice.addEventListener('mousemove', function (evt) {
+            showTooltip(name, pct, evt);
+          });
+          slice.addEventListener('mouseenter', function () {
+            highlightLegend(name);
+          });
+          slice.addEventListener('mouseleave', function () {
+            hideTooltip();
+            clearHighlight();
           });
         });
-        li.addEventListener('mouseleave', function () {
-          li.classList.remove('active');
-          slices.forEach(function (s) { s.style.opacity = ''; });
+
+        legendItems.forEach(function (li) {
+          var name = li.getAttribute('data-name');
+          li.addEventListener('mouseenter', function () {
+            li.classList.add('active');
+            slices.forEach(function (s) {
+              if (s.getAttribute('data-name') === name) {
+                s.dispatchEvent(new Event('mouseenter'));
+                s.style.opacity = '0.85';
+              }
+            });
+          });
+          li.addEventListener('mouseleave', function () {
+            li.classList.remove('active');
+            slices.forEach(function (s) { s.style.opacity = ''; });
+          });
         });
       });
     })();
